@@ -6,11 +6,11 @@ import {
   FaBoxOpen,
   FaShoppingBag,
   FaUsers,
-  FaCog,
   FaSignOutAlt,
   FaBars,
   FaTimes,
   FaUserShield,
+  FaEnvelopeOpenText, // ✅ Correct icon for User Query
 } from "react-icons/fa";
 import { usePathname, useRouter } from "next/navigation";
 
@@ -64,15 +64,11 @@ export default function AdminNavbar() {
   };
 
   const adminLinks = [
-    {
-      icon: <FaTachometerAlt />,
-      label: "Dashboard",
-      path: "/pages/adminDashboard",
-    },
+    { icon: <FaTachometerAlt />, label: "Dashboard", path: "/pages/adminDashboard" },
     { icon: <FaBoxOpen />, label: "Products", path: "/pages/products" },
-    { icon: <FaShoppingBag />, label: "Orders", path: "/pages/orders" },
+    { icon: <FaShoppingBag />, label: "Orders", path: "/pages/order" },
     { icon: <FaUsers />, label: "Users", path: "/pages/users" },
-    { icon: <FaCog />, label: "Settings", path: "/pages/settings" },
+    { icon: <FaEnvelopeOpenText />, label: "User Query", path: "/pages/contectus" }, // ✅ Fixed
   ];
 
   return (
@@ -80,8 +76,8 @@ export default function AdminNavbar() {
       <nav
         className={`fixed w-full z-50 transition-all duration-300 ${
           isScrolled
-            ? "py-2 bg-black shadow-lg backdrop-blur-md"
-            : "py-3 bg-black "
+            ? "py-2 bg-gradient-to-r from-black via-gray-900 to-black shadow-lg backdrop-blur-md"
+            : "py-3 bg-gradient-to-r from-black via-gray-900 to-black"
         }`}
       >
         <div className="container px-4 mx-auto flex items-center justify-between">
@@ -99,8 +95,8 @@ export default function AdminNavbar() {
             </button>
 
             <Link href="/" className="flex items-center">
-              <FaUserShield className="text-yellow-400 mr-2 text-2xl" />
-              <span className="text-xl font-extrabold text-yellow-400 tracking-wide">
+              <FaUserShield className="text-yellow-400 mr-2 text-2xl drop-shadow-lg" />
+              <span className="text-xl font-extrabold text-yellow-400 tracking-wide drop-shadow-md">
                 ADMIN PANEL
               </span>
             </Link>
@@ -112,24 +108,24 @@ export default function AdminNavbar() {
               <Link
                 key={idx}
                 href={item.path}
-                className="flex items-center space-x-2 text-gray-200 hover:text-yellow-400 font-medium transition-colors"
+                className="flex items-center space-x-2 text-gray-300 hover:text-yellow-400 font-medium transition-colors hover:scale-105 duration-200"
               >
                 {item.icon} <span>{item.label}</span>
               </Link>
             ))}
 
             {admin && (
-              <>
-                <span className="text-sm font-semibold text-gray-300 mr-4">
+              <div className="flex items-center space-x-4">
+                <span className="text-sm font-semibold text-yellow-300">
                   👋 {admin.username}
                 </span>
                 <button
                   onClick={handleLogout}
-                  className="flex items-center space-x-2 px-3 py-2 bg-red-600 text-white rounded-md hover:bg-red-500 transition-colors"
+                  className="flex items-center space-x-2 px-3 py-2 bg-gradient-to-r from-red-600 to-red-500 text-white rounded-md hover:scale-105 transition-transform"
                 >
                   <FaSignOutAlt /> <span>Logout</span>
                 </button>
-              </>
+              </div>
             )}
           </div>
         </div>
@@ -150,12 +146,12 @@ export default function AdminNavbar() {
 
             {admin && (
               <>
-                <p className="text-gray-300 font-semibold text-center">
+                <p className="text-yellow-300 font-semibold text-center">
                   👋 {admin.username}
                 </p>
                 <button
                   onClick={handleLogout}
-                  className="w-full py-2 bg-red-600 text-white rounded-md hover:bg-red-500 transition-colors flex items-center justify-center space-x-2"
+                  className="w-full py-2 bg-gradient-to-r from-red-600 to-red-500 text-white rounded-md hover:scale-105 transition-transform flex items-center justify-center space-x-2"
                 >
                   <FaSignOutAlt /> <span>Logout</span>
                 </button>
@@ -165,6 +161,7 @@ export default function AdminNavbar() {
         )}
       </nav>
 
+      {/* Spacer */}
       <div className="h-16 lg:h-14"></div>
     </>
   );
