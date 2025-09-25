@@ -16,6 +16,7 @@ import {
   FaUpload,
   FaPlus,
   FaTrash,
+  Trash2,
 } from "react-icons/fa";
 import toast from "react-hot-toast";
 import AOS from "aos";
@@ -122,10 +123,16 @@ export default function ItemForm() {
   };
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="max-w-3xl mx-auto p-6 bg-white shadow-lg rounded-lg space-y-6"
-    >
+   <form
+  onSubmit={handleSubmit}
+  className="w-full max-w-3xl mx-auto p-6 mt-[10%] bg-white shadow-lg rounded-lg space-y-6 
+             overflow-x-hidden sm:overflow-hidden" // <-- yeh add karo
+>
+
+      <h1 className="text-3xl font-bold text-center text-gray-800 border-b-2 border-blue-500 inline-block pb-2 mb-8">
+        Add Product
+      </h1>
+
       {/* Name */}
       <div data-aos="fade-up">
         <label className="flex items-center text-gray-700 font-semibold mb-2">
@@ -256,7 +263,7 @@ export default function ItemForm() {
         <h2 className="text-lg font-semibold text-gray-700 mb-4 flex items-center">
           <FaRuler className="mr-2 text-blue-500" /> Sizes
         </h2>
-        <div className="flex gap-2 mb-3">
+        <div className="flex gap-2 mb-3 flex-wrap sm:flex-nowrap">
           <input
             type="text"
             value={currentSize}
@@ -296,7 +303,7 @@ export default function ItemForm() {
         <h2 className="text-lg font-semibold text-gray-700 mb-4 flex items-center">
           <FaPalette className="mr-2 text-red-500" /> Colors
         </h2>
-        <div className="flex gap-2 mb-3">
+        <div className="flex gap-2 mb-3 flex-wrap sm:flex-nowrap">
           <input
             type="text"
             value={currentColor}
