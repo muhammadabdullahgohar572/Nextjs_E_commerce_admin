@@ -64,7 +64,7 @@ export default function AdminNavbar() {
   };
 
   const adminLinks = [
-    { icon: <FaTachometerAlt />, label: "Dashboard", path: "/pages/adminDashboard" },
+    { icon: <FaTachometerAlt />, label: "Dashboard", path: "/" },
     { icon: <FaBoxOpen />, label: "Add Products", path: "/pages/products" },
     { icon: <FaShoppingBag />, label: "Orders", path: "/pages/order" },
     { icon: <FaUsers />, label: "Users", path: "/pages/users" },

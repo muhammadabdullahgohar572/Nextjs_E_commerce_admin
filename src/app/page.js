@@ -1,8 +1,10 @@
-import Image from "next/image";
+
+import AdminDashboard from "./components/adminDashboard";
 
 export default function Home() {
   return (
   <>
+  <AdminDashboard/>
   </>
   );
 }
