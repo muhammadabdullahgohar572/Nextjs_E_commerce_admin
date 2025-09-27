@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import toast from "react-hot-toast";
+import Link from "next/link";
 
 const AdminDashboard = () => {
   const [items, setItems] = useState([]);
@@ -130,12 +131,13 @@ const AdminDashboard = () => {
 
             {/* Buttons */}
             <div className="mt-4 flex gap-3">
-              <button
-                onClick={() => alert("Edit functionality coming soon!")}
-                className="flex-1 py-2 bg-yellow-500 text-white rounded hover:bg-yellow-600"
+              <Link
+                href={`/pages/update/${item._id}`}
+                className="flex-1 py-2 text-center bg-yellow-500 text-white rounded hover:bg-yellow-600"
               >
                 Edit
-              </button>
+              </Link>
+
               <button
                 onClick={() => handleDelete(item._id)}
                 className="flex-1 py-2 bg-red-500 text-white rounded hover:bg-red-600"
