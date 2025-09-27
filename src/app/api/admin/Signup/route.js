@@ -1,7 +1,8 @@
-import AdminPanel from "@/libs/admin/AdminMoel";
+
 import connection_DB from "@/libs/Bd_Connection";
 import { NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
+import AdminPanel from "@/libs/AdminMoel";
 
 export const POST = async (req, res) => {
   try {
