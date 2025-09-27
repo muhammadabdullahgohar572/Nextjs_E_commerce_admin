@@ -12,11 +12,9 @@ import {
   FaCheckCircle,
   FaPalette,
   FaRuler,
-  FaCommentDots,
   FaUpload,
   FaPlus,
   FaTrash,
-  Trash2,
 } from "react-icons/fa";
 import toast from "react-hot-toast";
 import AOS from "aos";
