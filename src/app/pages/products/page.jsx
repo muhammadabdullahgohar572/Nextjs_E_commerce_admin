@@ -20,7 +20,7 @@ import toast from "react-hot-toast";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-AOS.init();
+
 
 export default function ItemForm() {
   const [formData, setFormData] = useState({
@@ -80,7 +80,9 @@ export default function ItemForm() {
       Colors: prev.Colors.filter((color) => color !== colorToRemove),
     }));
   };
-
+ useEffect(() => {
+    AOS.init();
+  }, []);
   // ✅ Submit form
   const handleSubmit = async (e) => {
     e.preventDefault();
