@@ -7,7 +7,7 @@ export const GET = async (req, { params }) => {
   try {
     await connection_DB();
 
-    const { id } = params;
+    const { id } =await params;
     const user = await UserModel.findById(id);
 
     if (!user) {
@@ -33,7 +33,7 @@ export const PUT = async (req, { params }) => {
   try {
     await connection_DB();
 
-    const { id } = params;
+    const { id } =await params;
     const body = await req.json();
 
     const { username, password, email, address, city, Gender, PhoneNumber } = body;

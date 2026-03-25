@@ -5,7 +5,7 @@ export async function PUT(req, { params }) {
   try {
     await connection_DB();
 
-    const { id } = params; // ✅ [id] folder se hi milega
+    const { id } =await params; // ✅ [id] folder se hi milega
     const { status } = await req.json();
 
     const validStatuses = ["pending", "confirmed", "shipped", "delivered", "cancelled"];

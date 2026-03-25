@@ -6,7 +6,7 @@ import { NextResponse } from "next/server";
 export const DELETE = async (req, { params }) => {
   try {
     await connection_DB();
-    const { id } = params;
+    const { id } =await params;
     await ItemsModel.findByIdAndDelete(id);
 
     return NextResponse.json({
@@ -26,7 +26,7 @@ export const PUT = async (req, { params }) => {
   try {
     await connection_DB();
 
-    const { id } = params;
+    const { id } =await params;
     const body = await req.json();
     const {
       Name,
@@ -86,7 +86,7 @@ export const PUT = async (req, { params }) => {
 export const GET = async (req, { params }) => {
   try {
     await connection_DB();
-    const { id } = params;
+    const { id } =await params;
     const item = await ItemsModel.findById(id);
 
     if (!item) {
